@@ -76,6 +76,11 @@ jobs:
           go-version-file: go.mod
           cache: true
       - name: govulncheck
+        env:
+          # govulncheck@latest requires a newer Go than go.mod pins; allow the
+          # toolchain to auto-upgrade for the tool install. setup-go v6 defaults
+          # GOTOOLCHAIN to "local", which otherwise blocks this.
+          GOTOOLCHAIN: auto
         run: |
           go install golang.org/x/vuln/cmd/govulncheck@latest
           govulncheck ./...
