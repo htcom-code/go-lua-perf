@@ -1,6 +1,6 @@
 module github.com/htcom-code/go-lua-perf
 
-go 1.24.0
+go 1.24.6
 
 require (
 	github.com/htcom-code/lua-pure v0.1.1
