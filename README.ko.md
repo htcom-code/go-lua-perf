@@ -60,6 +60,14 @@ out, _ := rt.Run(context.Background(), "greeter", "greet", lua.LString("luart"))
 fmt.Println(out[0].String()) // hello, luart
 ```
 
+> [!IMPORTANT]
+> **`SourceLoader` 는 사용 개발자가 직접 구현하는 인터페이스입니다** — 외부 캐시/DB/서비스에서 소스를 가져오도록 작성하세요:
+> `Load(key string) (src, version, displayVersion string, err error)`
+>
+> `NewMapLoader`(및 `Set` / `Loads`)는 **테스트·데모 전용** in-memory 구현으로 운영에는 적합하지 않습니다(모든 소스를 영구 상주). 콘텐츠 해시 헬퍼 `HashVersion(src string) string` 만 데모 외에서도 쓸 수 있습니다.
+>
+> **전체 가이드 + File/DB/Memory/혼합 예제:** [docs/SourceLoader.ko.md](docs/SourceLoader.ko.md).
+
 ## 사용법
 
 런타임 표면은 작다: `New` 로 만들고, `Run` / `RunValues` / `RunWith` 로 실행하고,
