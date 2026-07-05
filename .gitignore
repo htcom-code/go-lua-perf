@@ -1,0 +1,29 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+bin/
+
+# Test binary and coverage
+*.test
+*.out
+coverage.txt
+
+# Profiling output (make memprof)
+*.prof
+
+# Go workspace
+go.work
+go.work.sum
+
+# Local Claude settings
+.claude/settings.local.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Private Claude guidance (brain pointers — never publish)
+CLAUDE.local.md

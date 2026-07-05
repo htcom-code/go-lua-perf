@@ -1,0 +1,83 @@
+name: Bug report
+description: luart misbehaves — wrong result, crash, race, leak, or a pooling / caching / registry / config fault.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. `luart` is a **high-performance, concurrency-safe
+        runtime** (bytecode cache + per-script VM pool + dynamic registry) built on
+        top of [lua-pure](https://github.com/htcom-code/lua-pure).
+
+        - **Lua *language* bugs** (a script behaves differently from PUC-Lua 5.4.8,
+          wrong error text, arithmetic/coercion, `string.*`) belong to
+          **[lua-pure](https://github.com/htcom-code/lua-pure/issues)**, not here.
+        - File here for luart's runtime: caching, VM pooling, the dynamic registry
+          (lazy load, TTL eviction, memory budget, hot reload), `SourceLoader`,
+          `ExecTimeout` / `MaxInstructions`, `Config`, observability.
+        - **Security issues:** do **not** file here — see
+          [SECURITY.md](../blob/main/SECURITY.md).
+  - type: textarea
+    id: reproducer
+    attributes:
+      label: Minimal reproducer
+      description: The smallest Go program (using luart) plus Lua script that triggers the bug. A failing test is ideal.
+      render: go
+      placeholder: |
+        loader := luart.NewMapLoader()
+        loader.Set("s", `function f() return 1 end`, luart.HashVersion("..."), "1.0.0")
+        rt := luart.New(loader, luart.Config{MaxStates: 4})
+        defer rt.Close()
+        _, err := rt.Run(context.Background(), "s", "f")
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What you expected luart to do.
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: What happened instead — output, error, panic, stack trace, or `-race` report. Paste it verbatim.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: luart version / commit
+      description: Release tag (e.g. v0.2.0) or commit SHA.
+      placeholder: "v0.2.0 or abc1234"
+    validations:
+      required: true
+  - type: input
+    id: goenv
+    attributes:
+      label: Go version & OS/arch
+      description: Output of `go version`.
+      placeholder: "go1.24 darwin/arm64"
+    validations:
+      required: false
+  - type: textarea
+    id: config
+    attributes:
+      label: Config & concurrency context
+      description: >-
+        Relevant `Config` (MaxStates, MemoryBudgetBytes, IdleTTL, ExecTimeout,
+        MaxInstructions, SkipOpenLibs, custom Libs), which `SourceLoader` you use,
+        and the concurrency shape (how many goroutines call `Run`, whether hot
+        reload / eviction was active). Most pooling/registry bugs only reproduce
+        under a specific config + load.
+    validations:
+      required: false
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Logs, metrics, profiles, or other context.
+    validations:
+      required: false

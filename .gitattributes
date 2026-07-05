@@ -1,0 +1,32 @@
+# Normalize line endings so checkouts are identical on macOS, Linux, and Windows.
+# Without this, Git-for-Windows (core.autocrlf=true) checks out *.go with CRLF,
+# which compiles fine but makes `gofmt -l` flag every file — breaking the format
+# discipline. Keeping LF in the working tree avoids that churn.
+* text=auto eol=lf
+
+# Toolchain-sensitive text files: force LF explicitly.
+*.go     text eol=lf
+*.mod    text eol=lf
+*.sum    text eol=lf
+*.md     text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+*.json   text eol=lf
+*.lua    text eol=lf
+Makefile text eol=lf
+
+# Binary files Git should never touch.
+*.png binary
+*.jpg binary
+*.gif binary
+
+# Excluded from `git archive` (source snapshots / GitHub mirror), but kept
+# tracked here — these are internal development artifacts that stay in the
+# origin repo yet don't belong in a published source export. See
+# docs/plans/glimmering-gathering-wall.md (GitLab → GitHub migration).
+docs/golang-ai-rule.md        export-ignore
+docs/history.md               export-ignore
+docs/concurrency-safety.ko.md export-ignore
+docs/plans/                   export-ignore
+.gitlab-ci.yml                export-ignore
+.claude/                      export-ignore

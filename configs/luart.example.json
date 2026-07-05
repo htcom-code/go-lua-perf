@@ -1,0 +1,7 @@
+{
+  "maxStates": 16,
+  "memoryBudgetBytes": 0,
+  "idleTTL": "5m",
+  "janitorInterval": "30s",
+  "execTimeout": "0s"
+}

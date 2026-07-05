@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest a luart runtime capability — caching, pooling, registry, config, observability, or a SourceLoader enhancement.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        `luart` is the **runtime layer** — bytecode caching, per-script VM pooling,
+        the dynamic registry, `SourceLoader`, config, and observability — on top of
+        [lua-pure](https://github.com/htcom-code/lua-pure).
+
+        Requests for the **Lua language surface** (new/changed Lua semantics,
+        standard-library behaviour) are **out of scope here** — those track PUC-Lua
+        upstream in [lua-pure](https://github.com/htcom-code/lua-pure/issues).
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / use case
+      description: What are you trying to do, and what's missing or awkward with luart today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: The API or behaviour you'd like. A sketch of the Go call site (New / Run / Config / SourceLoader) helps.
+      render: go
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds you've tried (e.g. a custom SourceLoader, external cache) or other designs you weighed.
+    validations:
+      required: false
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This is about the luart runtime, not a change to the Lua language surface (those go to lua-pure).
+          required: true
+        - label: I've considered whether this fits an existing extension point (custom SourceLoader, Config.Libs, Metrics/Logger/TraceHook) rather than a core change.
+          required: false

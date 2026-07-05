@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/htcom-code/go-lua-perf/security/advisories/new
+    about: Report a vulnerability privately — do not open a public issue. See SECURITY.md.
+  - name: Lua language behaviour (lua-pure)
+    url: https://github.com/htcom-code/lua-pure/issues
+    about: Bugs in Lua semantics / standard library (differs from PUC-Lua 5.4.8) belong to the lua-pure engine, not luart.

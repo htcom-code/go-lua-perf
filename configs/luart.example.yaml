@@ -1,0 +1,8 @@
+# luart config — see docs/config.md. Durations: "300ms","30s","5m","1h".
+# maxStates 0 => derived from memoryBudgetBytes / measured per-state cost.
+# execTimeout 0 => no per-execution time limit (disabled).
+maxStates: 16
+memoryBudgetBytes: 0
+idleTTL: 5m
+janitorInterval: 30s
+execTimeout: 0s
