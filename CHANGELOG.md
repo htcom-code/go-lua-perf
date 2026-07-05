@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 While the version is `0.x`, the public API may change between minor releases.
 
+## [Unreleased]
+
+### Changed
+
+- Bump the `lua-pure` dependency to **v0.1.2** and, to satisfy its toolchain
+  requirement, raise the minimum Go version to **1.25** (`go.mod` now pins
+  `go 1.25.11`; was `1.24`).
+
 ## [0.0.1] - 2026-07-05
 
 Initial public release of **`luart`** — a high-performance, concurrency-safe

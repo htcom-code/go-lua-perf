@@ -5,7 +5,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/htcom-code/go-lua-perf.svg)](https://pkg.go.dev/github.com/htcom-code/go-lua-perf)
 [![CI](https://github.com/htcom-code/go-lua-perf/actions/workflows/ci.yml/badge.svg)](https://github.com/htcom-code/go-lua-perf/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/htcom-code/go-lua-perf)](https://goreportcard.com/report/github.com/htcom-code/go-lua-perf)
-[![Go 1.24+](https://img.shields.io/badge/go-1.24%2B-00ADD8?logo=go&logoColor=white)](https://go.dev/dl/)
+[![Go 1.25+](https://img.shields.io/badge/go-1.25%2B-00ADD8?logo=go&logoColor=white)](https://go.dev/dl/)
 [![Lua 5.4](https://img.shields.io/badge/Lua-5.4-000080.svg)](https://www.lua.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -14,7 +14,7 @@ a per-`key:version` bytecode cache, per-script VM pooling, and a self-managing d
 registry — on top of [lua-pure](https://github.com/htcom-code/lua-pure), a pure-Go
 PUC-Lua 5.4 engine.
 
-- Module `github.com/htcom-code/go-lua-perf` · Go 1.24+ · lua-pure v0.1.1 (Lua 5.4) · **v0.0.1**
+- Module `github.com/htcom-code/go-lua-perf` · Go 1.25+ · lua-pure v0.1.2 (Lua 5.4) · **v0.0.1**
 - The core library depends only on lua-pure (the config loader's YAML dependency is isolated in `luartconfig`).
 
 ## Features

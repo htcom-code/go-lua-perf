@@ -12,7 +12,7 @@ cd go-lua-perf
 make all        # vet → test → race → build
 ```
 
-Requires Go 1.24+ (the toolchain is pinned in `go.mod`). The core library depends
+Requires Go 1.25+ (the toolchain is pinned in `go.mod`). The core library depends
 only on [lua-pure](https://github.com/htcom-code/lua-pure); the YAML dependency is
 isolated in the `luartconfig` subpackage.
 
