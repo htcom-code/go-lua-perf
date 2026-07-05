@@ -61,6 +61,14 @@ out, _ := rt.Run(context.Background(), "greeter", "greet", lua.LString("luart"))
 fmt.Println(out[0].String()) // hello, luart
 ```
 
+> [!IMPORTANT]
+> **`SourceLoader` is the interface you implement** — write it to fetch sources from your external cache/DB/service:
+> `Load(key string) (src, version, displayVersion string, err error)`
+>
+> `NewMapLoader` (and `Set` / `Loads`) is a **test/demo-only** in-memory implementation, not suitable for production (it keeps every source resident forever). Only the content-hash helper `HashVersion(src string) string` is meant for use beyond demos.
+>
+> **Full guide + File/DB/Memory/hybrid examples:** [docs/SourceLoader.md](docs/SourceLoader.md).
+
 ## Usage
 
 The runtime is a small surface: construct with `New`, execute with `Run` /
