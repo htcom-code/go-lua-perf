@@ -5,7 +5,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/htcom-code/go-lua-perf.svg)](https://pkg.go.dev/github.com/htcom-code/go-lua-perf)
 [![CI](https://github.com/htcom-code/go-lua-perf/actions/workflows/ci.yml/badge.svg)](https://github.com/htcom-code/go-lua-perf/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/htcom-code/go-lua-perf)](https://goreportcard.com/report/github.com/htcom-code/go-lua-perf)
-[![Go 1.24+](https://img.shields.io/badge/go-1.24%2B-00ADD8?logo=go&logoColor=white)](https://go.dev/dl/)
+[![Go 1.25+](https://img.shields.io/badge/go-1.25%2B-00ADD8?logo=go&logoColor=white)](https://go.dev/dl/)
 [![Lua 5.4](https://img.shields.io/badge/Lua-5.4-000080.svg)](https://www.lua.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -13,7 +13,7 @@
 바이트코드 캐시, 스크립트별 VM 풀링, 스스로 관리하는 동적 레지스트리를,
 [lua-pure](https://github.com/htcom-code/lua-pure)(순수 Go PUC-Lua 5.4 엔진) 위에 얹었다.
 
-- 모듈 `github.com/htcom-code/go-lua-perf` · Go 1.24+ · lua-pure v0.1.1 (Lua 5.4) · **v0.0.1**
+- 모듈 `github.com/htcom-code/go-lua-perf` · Go 1.25+ · lua-pure v0.1.2 (Lua 5.4) · **v0.0.1**
 - 코어 라이브러리는 lua-pure 외 의존성이 없다(설정 로더의 YAML 의존성은 `luartconfig` 에 격리).
 
 ## 특징 (Features)
