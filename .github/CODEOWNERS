@@ -1,3 +1,7 @@
 # Default owner for everything in the repo.
 # See https://docs.github.com/articles/about-code-owners
-* @htjulia
+#
+# NOTE: CODEOWNERS resolves @-mentions by login (username), not display name.
+# The account's login is @htcom-code (display name "htjulia"), so the owner
+# must be @htcom-code — @htjulia is not a real login and would be silently ignored.
+* @htcom-code
